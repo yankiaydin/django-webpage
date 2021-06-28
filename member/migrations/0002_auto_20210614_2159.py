@@ -6,21 +6,24 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('member', '0001_initial'),
+        ("member", "0001_initial"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='profile',
-            name='profile_picture',
+            model_name="profile",
+            name="profile_picture",
         ),
         migrations.RemoveField(
-            model_name='profile',
-            name='web_page',
+            model_name="profile",
+            name="web_page",
         ),
         migrations.AlterField(
-            model_name='profile',
-            name='job',
-            field=models.CharField(choices=[('Architect', 'Architect'), ('Constructor', 'Constructor')], max_length=20),
+            model_name="profile",
+            name="job",
+            field=models.CharField(
+                choices=[("Architect", "Architect"), ("Constructor", "Constructor")],
+                max_length=20,
+            ),
         ),
     ]

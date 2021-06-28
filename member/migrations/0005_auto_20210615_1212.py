@@ -6,18 +6,18 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('member', '0004_profile_job'),
+        ("member", "0004_profile_job"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='profile',
-            name='profile_pic',
-            field=models.ImageField(blank=True, upload_to=''),
+            model_name="profile",
+            name="profile_pic",
+            field=models.ImageField(blank=True, upload_to=""),
         ),
         migrations.AddField(
-            model_name='profile',
-            name='web_page',
+            model_name="profile",
+            name="web_page",
             field=models.URLField(blank=True),
         ),
     ]

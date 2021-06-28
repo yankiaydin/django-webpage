@@ -9,18 +9,24 @@ class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('career', '0001_initial'),
+        ("career", "0001_initial"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='career',
-            name='advert_image',
-            field=models.ImageField(blank=True, upload_to='', verbose_name='AdvertImage'),
+            model_name="career",
+            name="advert_image",
+            field=models.ImageField(
+                blank=True, upload_to="", verbose_name="AdvertImage"
+            ),
         ),
         migrations.AlterField(
-            model_name='career',
-            name='owner',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL, verbose_name='Owner'),
+            model_name="career",
+            name="owner",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE,
+                to=settings.AUTH_USER_MODEL,
+                verbose_name="Owner",
+            ),
         ),
     ]

@@ -9,40 +9,97 @@ class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('member', '0009_alter_profile_user'),
+        ("member", "0009_alter_profile_user"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='profile',
-            name='profile_pic',
-            field=models.ImageField(blank=True, upload_to='uploads/'),
+            model_name="profile",
+            name="profile_pic",
+            field=models.ImageField(blank=True, upload_to="uploads/"),
         ),
         migrations.CreateModel(
-            name='Education',
+            name="Education",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('university', models.CharField(blank=True, max_length=30)),
-                ('job', models.CharField(blank=True, choices=[('Studend', 'Student'), ('Post Graduate', 'Post Graduate'), ('Phd', 'Phd'), ('Professor', 'Professor')], max_length=30)),
-                ('user', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, related_name='education', to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("university", models.CharField(blank=True, max_length=30)),
+                (
+                    "job",
+                    models.CharField(
+                        blank=True,
+                        choices=[
+                            ("Studend", "Student"),
+                            ("Post Graduate", "Post Graduate"),
+                            ("Phd", "Phd"),
+                            ("Professor", "Professor"),
+                        ],
+                        max_length=30,
+                    ),
+                ),
+                (
+                    "user",
+                    models.OneToOneField(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="education",
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='Constructor',
+            name="Constructor",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('company_name', models.CharField(blank=True, max_length=30)),
-                ('service', models.CharField(blank=True, max_length=30)),
-                ('user', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, related_name='constructor', to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("company_name", models.CharField(blank=True, max_length=30)),
+                ("service", models.CharField(blank=True, max_length=30)),
+                (
+                    "user",
+                    models.OneToOneField(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="constructor",
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='Architect',
+            name="Architect",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('office', models.CharField(blank=True, max_length=30)),
-                ('experience', models.IntegerField(blank=True, max_length=2)),
-                ('user', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, related_name='architect', to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("office", models.CharField(blank=True, max_length=30)),
+                ("experience", models.IntegerField(blank=True, max_length=2)),
+                (
+                    "user",
+                    models.OneToOneField(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="architect",
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
         ),
     ]

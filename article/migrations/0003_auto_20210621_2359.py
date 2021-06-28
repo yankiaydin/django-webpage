@@ -9,18 +9,20 @@ class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('article', '0002_auto_20210621_1718'),
+        ("article", "0002_auto_20210621_1718"),
     ]
 
     operations = [
         migrations.RenameField(
-            model_name='comment',
-            old_name='comment',
-            new_name='comment_content',
+            model_name="comment",
+            old_name="comment",
+            new_name="comment_content",
         ),
         migrations.AlterField(
-            model_name='comment',
-            name='commenter',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL),
+            model_name="comment",
+            name="commenter",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL
+            ),
         ),
     ]

@@ -20,15 +20,14 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('member/', include('member.urls')),
-    path('', views.main_page, name="home"),
-    path('about/', views.about, name="about"),
-    path('article/', include('article.urls')),
-    path('career/', include('career.urls')),
-    path('search/', views.results_page,name= "search"),
+    path("admin/", admin.site.urls),
+    path("member/", include("member.urls")),
+    path("", views.main_page, name="home"),
+    path("about/", views.about, name="about"),
+    path("article/", include("article.urls")),
+    path("career/", include("career.urls")),
+    path("search/", views.results_page, name="search"),
 ]
 
 if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL,
-                          document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -9,35 +9,53 @@ class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('member', '0013_auto_20210619_1321'),
+        ("member", "0013_auto_20210619_1321"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='architect',
-            name='id',
+            model_name="architect",
+            name="id",
         ),
         migrations.RemoveField(
-            model_name='constructor',
-            name='id',
+            model_name="constructor",
+            name="id",
         ),
         migrations.RemoveField(
-            model_name='education',
-            name='id',
+            model_name="education",
+            name="id",
         ),
         migrations.AlterField(
-            model_name='architect',
-            name='user',
-            field=models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, primary_key=True, related_name='architect', serialize=False, to=settings.AUTH_USER_MODEL),
+            model_name="architect",
+            name="user",
+            field=models.OneToOneField(
+                on_delete=django.db.models.deletion.CASCADE,
+                primary_key=True,
+                related_name="architect",
+                serialize=False,
+                to=settings.AUTH_USER_MODEL,
+            ),
         ),
         migrations.AlterField(
-            model_name='constructor',
-            name='user',
-            field=models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, primary_key=True, related_name='constructor', serialize=False, to=settings.AUTH_USER_MODEL),
+            model_name="constructor",
+            name="user",
+            field=models.OneToOneField(
+                on_delete=django.db.models.deletion.CASCADE,
+                primary_key=True,
+                related_name="constructor",
+                serialize=False,
+                to=settings.AUTH_USER_MODEL,
+            ),
         ),
         migrations.AlterField(
-            model_name='education',
-            name='user',
-            field=models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, primary_key=True, related_name='education', serialize=False, to=settings.AUTH_USER_MODEL),
+            model_name="education",
+            name="user",
+            field=models.OneToOneField(
+                on_delete=django.db.models.deletion.CASCADE,
+                primary_key=True,
+                related_name="education",
+                serialize=False,
+                to=settings.AUTH_USER_MODEL,
+            ),
         ),
     ]
