@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<br><br><br><br>
+
+<div class="container">
+    <h4>Result for Articles:</h4>
+<hr>
+{% if articles %}
+    {% for article in articles %}
+    <a href="{% url 'articles:article_detail' article.id %}">{{ article.title }}</a>
+
+    {% endfor %}
+    {% else %}
+    <p>There is no article with this name</p>
+{% endif %}
+<hr>
+
+<h4>Result for Adverts:</h4>
+<hr>
+{% if adverts %}
+        <hr>
+    {% for advert in adverts %}
+        {{ advert.advert_title }}
+    {% endfor %}
+    {% else %}
+    <p><i>There is no advert with this name</i></p>
+{% endif %}
+</div>
+
+{% endblock %}
