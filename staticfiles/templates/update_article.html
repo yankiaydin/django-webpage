@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+{% load static %}
+<script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
+<script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
+<script>window.CKEDITOR_BASEPATH = '/static/ckeditor/ckeditor/';</script>
+
+
+<br><br><br>
+<h2>EDIT</h2>
+<hr>
+<form class="container" method="POST">
+    {% csrf_token %}
+    {{ form.media }}
+    {{ form|crispy}}
+    <br>
+    <button type="submit" class="btn btn-success">Update</button>
+
+</form>
+{% endblock %}
+
+
+
+

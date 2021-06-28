@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<br><br><br>
+<h2>DASHBOARD</h2>
+<hr>
+
+<div class="container">
+
+{% if articles %}
+
+        <table class="table">
+          <thead class="thead-dark">
+
+            <tr>
+              <th scope="col">id</th>
+              <th scope="col">Author</th>
+              <th scope="col">Title</th>
+              <th scope="col">Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for article in articles %}
+            <tr>
+              <td scope="row">{{article.id}}</td>
+                <td><a href="{% url 'articles:article_detail' article.id %}">{{article.title}}</a></td>
+              <td>{{article.author}}</td>
+              <td>{{article.date}}</td>
+              {% if request.user.is_authenticated %}
+              <td><a href="{% url 'articles:article_update' article.id %}"><button type="submit" class="btn btn-success">Edit</button></a></td>
+              <td><a href="{% url 'articles:article_delete' article.id %}"><button type="submit" class="btn btn-danger">Delete</button></a></td>
+              {% endif %}
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+
+{% else %}
+
+<h4>You have not an article yet.</h4>
+
+{% endif %}
+  <hr>
+  <a href="{% url 'articles:edit_article' %}"><button type="submit"  class="btn btn-primary">Create New Article</button></a>
+
+
+</div>
+
+{% endblock %}
+
+
+
+

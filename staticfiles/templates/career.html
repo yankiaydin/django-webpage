@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<br><br><br>
+<h2>CAREER</h2>
+<h5>You may find daily adverts and job opportunities here </h5>
+    <td><a href="{% url 'career:advert' %}"><button type="submit" class="btn btn-success">Add new one</button></a></td>
+<hr>
+
+<div class="container">
+
+{% if adverts %}
+
+  <table class="table">
+  <thead class="thead-dark">
+
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Firm</th>
+      <th scope="col">Title</th>
+      <th scope="col">Date</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for advert in adverts %}
+    <tr>
+      <td scope="row">{{advert.id}}</td>
+        <td>{{advert.firm}}</td>
+      <td><a href="{% url 'career:advert_detail' advert.id %}">{{advert.advert_title}}</a></td>
+      <td>{{advert.advert_date}}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+
+</table>
+
+{% endif %}
+
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<br><br><br>
+<h2>ARCHITECT PROFILE</h2>
+<hr>
+
+
+<form class="container"  method="POST">
+    {% csrf_token %}
+
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+{% endif %}
+
+    <br>
+    {{ request.user.profile.job }}
+        {{ form|crispy }}
+
+
+    <br>
+    <button type="submit" class="btn btn-success">Save</button>
+</form>
+
+{% endblock %}

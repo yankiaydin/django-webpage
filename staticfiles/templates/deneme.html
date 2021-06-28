@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+{% if request.user.is_authenticated %}
+    {{ request.profile.user }}
+
+
+    <br><br><br>
+    <h2>DENEME</h2>
+    <hr>
+     {{persona.user}}
+    <hr>
+    {{persona.location }}
+    <hr>
+    {{persona.job }}
+    <hr>
+    {% load static %}
+    <img src="{% static '{{persona.profile_pic}}' %}" alt="Prof Pic">
+    {{persona.profile_pic}}
+    <hr>
+
+    <img src="" alt="Profile-Picture">
+    <hr>
+    <img src="C:/Users/grisl/OneDrive/Masaüstü/fedya.jpg" alt="Fedya">
+
+    <br>
+
+{% endif %}
+
+{% endblock %}
